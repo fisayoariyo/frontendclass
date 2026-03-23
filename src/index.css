@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass:        rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover:  rgba(255, 255, 255, 0.07);
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body, #root { height: 100%; width: 100%; }
+  body {
+    @apply bg-neutral-900 text-white font-body overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar       { height: 4px; width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-neutral-700 rounded-full; }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    @apply rounded-3xl;
+  }
+  .focus-ring {
+    @apply outline-none ring-2 ring-orange-500 ring-offset-2 ring-offset-neutral-900;
+  }
+  .skeleton {
+    @apply bg-neutral-800 rounded-xl animate-pulse;
+  }
+}
